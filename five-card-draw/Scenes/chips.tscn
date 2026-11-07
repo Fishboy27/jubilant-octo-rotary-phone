@@ -1,0 +1,395 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctab1u5u1w33j"]
+
+[ext_resource type="Script" uid="uid://x3ax08bn70ea" path="res://Scripts/chips.gd" id="1_n5ewn"]
+[ext_resource type="Texture2D" uid="uid://bb6e7axn74err" path="res://Art/BlueChip.png" id="1_x0klo"]
+[ext_resource type="Texture2D" uid="uid://vx57ey8ap3rl" path="res://Art/GreenChip.png" id="2_n5ewn"]
+[ext_resource type="Texture2D" uid="uid://bb5txlqiagde" path="res://Art/HighlightedChip.png" id="3_vrx67"]
+[ext_resource type="Texture2D" uid="uid://djlpwu054tffh" path="res://Art/InvisibleChip.png" id="4_y1gck"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsxyd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x0klo")
+}],
+"loop": true,
+"name": &"Blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n5ewn")
+}],
+"loop": true,
+"name": &"Green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vrx67")
+}],
+"loop": true,
+"name": &"Highlighted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y1gck")
+}],
+"loop": true,
+"name": &"Invisible",
+"speed": 5.0
+}]
+
+[node name="Chips" type="Node2D"]
+script = ExtResource("1_n5ewn")
+
+[node name="PlayerChip0" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(919, 503)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip1" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(908, 483)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(913.00006, 463.00003)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(945.00006, 444.00003)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip4" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(927.00006, 424.00003)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip5" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(904, 404)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip6" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(918, 384)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip7" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(924, 364)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip8" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(910, 344)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip9" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(917, 324.00006)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip10" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(932, 304.00006)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip11" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(923, 284.00006)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip12" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(940.00006, 264.00006)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip13" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(929.00006, 244.00009)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip14" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(925.00006, 224.00009)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip15" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(934.00006, 204.00009)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip16" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(941.00006, 184.00009)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip17" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(939.00006, 164.00009)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip18" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(926.00006, 144.00009)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerChip19" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(955, 124.000114)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip0" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(955.00006, -18.999878)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip1" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(965, 1.0001221)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(943, 21.000118)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(959, 41.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip4" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(967, 61.000114)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip5" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(964.00006, 81.000114)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip6" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(950, 101.000114)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip7" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(979, 121.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip8" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(970.00006, 141.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip9" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(951.00006, 161.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip10" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(959.00006, 181.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip11" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(963, 201.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip12" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(977, 221.00014)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip13" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(940.00006, 241.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip14" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(947.00006, 261.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip15" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(960, 281.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip16" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(954.00006, 301.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip17" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(966.00006, 321.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip18" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(934.00006, 341.00015)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerChip19" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(980, 361.00015)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet0" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(158.00006, 520.99994)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet1" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(158.00006, 520.99994)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(171.00006, 500.99997)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(154.00006, 480.99994)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet4" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(165.00006, 460.99994)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet5" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(185.00006, 440.99997)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet6" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(145.00006, 420.99994)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet7" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(176.00006, 400.99997)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet8" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(195.00006, 380.99997)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="PlayerBet9" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(161.00006, 360.99994)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"

@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://cex846ttusjk6"]
+
+[ext_resource type="Texture2D" uid="uid://22yo4aun86oc" path="res://Art/Background.png" id="1_r4jc3"]
+[ext_resource type="Texture2D" uid="uid://d2guskptj0f8r" path="res://Art/vignette.png" id="2_0xndo"]
+[ext_resource type="Texture2D" uid="uid://wq43mgo0w2wb" path="res://Art/Cardplace.png" id="3_xqsq7"]
+[ext_resource type="Texture2D" uid="uid://dosyrmd33p1d2" path="res://Art/FinFace.PNG" id="7_usajj"]
+[ext_resource type="Texture2D" uid="uid://dlydna4243prf" path="res://Art/Boos Battle (1).png" id="8_o4lkm"]
+
+[node name="Table" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(573.5, 324)
+scale = Vector2(1.2937853, 1.2393823)
+texture = ExtResource("1_r4jc3")
+
+[node name="Vignette" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(569, 322.50003)
+scale = Vector2(5.4166665, 6.7083325)
+texture = ExtResource("2_0xndo")
+
+[node name="Cardplace" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(273, 526)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="Cardplace2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(388.00003, 526)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="Cardplace3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(503.00003, 526)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="Cardplace4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(618, 526)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="Cardplace5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(733, 526)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="Cardplace6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(273, 143.00003)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="Cardplace7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(388, 143.00003)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="Cardplace8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(503, 143.00003)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="Cardplace9" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(618, 143.00003)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="Cardplace10" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(733, 143.00003)
+scale = Vector2(5, 5)
+texture = ExtResource("3_xqsq7")
+
+[node name="FinFace" type="Sprite2D" parent="."]
+position = Vector2(572, -424)
+scale = Vector2(0.23548387, 0.19127709)
+texture = ExtResource("7_usajj")
+
+[node name="BoosBattle(1)" type="Sprite2D" parent="."]
+position = Vector2(2642, -650)
+texture = ExtResource("8_o4lkm")
