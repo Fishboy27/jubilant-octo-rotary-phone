@@ -1,9 +1,10 @@
 extends Node
 
-var raiseamount : int = 0
+var playerraiseamount : int = 0
+var dealerraiseamount : int = 10
 var canraise : bool = true
-var dealerchips : int = 3
-var playerchips : int = 3
+var dealerchips : int = 10
+var playerchips : int = 10
 var playerbet : int = 0
 var dealerbet : int = 0
 

@@ -15,6 +15,9 @@ $DealerChip17, $DealerChip18, $DealerChip19]
 @onready var playerbet : Array = [$PlayerBet0, $PlayerBet1, $PlayerBet2, $PlayerBet3, $PlayerBet4, 
 $PlayerBet5, $PlayerBet6, $PlayerBet7, $PlayerBet8, $PlayerBet9]
 
+@onready var dealerbet : Array = [$DealerBet0, $DealerBet1, $DealerBet2, $DealerBet3, $DealerBet4, 
+$DealerBet5, $DealerBet6, $DealerBet7, $DealerBet8, $DealerBet9]
+
 var playerchipcount : int = 19
 var dealerchipcount : int = 19
 var playershownchips : int = 0
@@ -34,25 +37,26 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if start:
 		_showplayerchips()
-		_showdealerchips()
+		#_showdealerchips()
+		_showdealerbet()
 		start = false
 
 	if Global.canraise:
-		if Input.is_action_just_pressed("Down") and Global.raiseamount < playershownchips and Global.raiseamount < dealershownchips:
-			playerchips[playershownchips - Global.raiseamount - 1].animation = ("Highlighted")
-			Global.raiseamount += 1
-		if Input.is_action_just_pressed("Up") and Global.raiseamount > 0:
-			Global.raiseamount -= 1
-			playerchips[playershownchips - Global.raiseamount - 1].animation = ("Blue")
+		if Input.is_action_just_pressed("Down") and Global.playerraiseamount < playershownchips and Global.playerraiseamount < dealershownchips + dealershownbet:
+			playerchips[playershownchips - Global.playerraiseamount - 1].animation = ("Highlighted")
+			Global.playerraiseamount += 1
+		if Input.is_action_just_pressed("Up") and Global.playerraiseamount > 0:
+			Global.playerraiseamount -= 1
+			playerchips[playershownchips - Global.playerraiseamount - 1].animation = ("Blue")
 		if Input.is_action_just_pressed("Left"):
 			_showplayerchips()
-			Global.raiseamount = 0
+			Global.playerraiseamount = 0
 			Global.canraise = false
-		if Input.is_action_just_pressed("Enter") and Global.raiseamount > 0:
-			Global.playerbet += Global.raiseamount
+		if Input.is_action_just_pressed("Enter") and (Global.playerraiseamount > 0 or Global.playerraiseamount > Global.dealerraiseamount):
+			Global.playerbet += Global.playerraiseamount
 			playerchipcount = 19
 			for i in range(20):
-				if playerchipcount >= Global.playerchips - Global.raiseamount:
+				if playerchipcount >= Global.playerchips - Global.playerraiseamount:
 					playerchips[playerchipcount].animation = ("Invisible")
 					playerchipcount -= 1
 				elif playerchipcount >= 0:
@@ -61,7 +65,7 @@ func _process(delta: float) -> void:
 					playerchipcount -= 1
 				else:
 					playerchipcount = 19
-			Global.raiseamount = 0
+			Global.playerraiseamount = 0
 			_showplayerbet()
 			Global.canraise = false
 
@@ -96,7 +100,7 @@ func _showdealerchips():
 func _showplayerbet():
 	playershownbet = 0
 	for i in range(10):
-		if playerbetcount > Global.playerbet:
+		if playerbetcount >= Global.playerbet:
 			playerbet[playerbetcount].animation = ("Invisible")
 			playerbetcount -= 1
 		elif playerbetcount >= 0:
@@ -105,6 +109,32 @@ func _showplayerbet():
 			playerbetcount -= 1
 		else:
 			playerbetcount = 9
+
+func _showdealerbet():
+	Global.dealerbet += Global.dealerraiseamount
+	dealerchipcount = 19
+	for i in range(20):
+		if dealerchipcount >= Global.dealerchips - Global.dealerraiseamount:
+			dealerchips[dealerchipcount].animation = ("Invisible")
+			dealerchipcount -= 1
+		elif dealerchipcount >= 0:
+			dealerchips[dealerchipcount].animation = ("Blue")
+			dealershownchips += 1
+			dealerchipcount -= 1
+		else:
+			dealerchipcount = 19
+	Global.dealerraiseamount = 0
+	dealershownbet = 0
+	for i in range(10):
+		if dealerbetcount >= Global.dealerbet:
+			dealerbet[dealerbetcount].animation = ("Invisible")
+			dealerbetcount -= 1
+		elif dealerbetcount >= 0:
+			dealerbet[dealerbetcount].animation = ("Blue")
+			dealershownbet += 1
+			dealerbetcount -= 1
+		else:
+			dealerbetcount = 9
 
 func _initialise():
 	playerchips[0].animation = ("Invisible")
@@ -157,3 +187,13 @@ func _initialise():
 	playerbet[7].animation = ("Invisible")
 	playerbet[8].animation = ("Invisible")
 	playerbet[9].animation = ("Invisible")
+	dealerbet[0].animation = ("Invisible")
+	dealerbet[1].animation = ("Invisible")
+	dealerbet[2].animation = ("Invisible")
+	dealerbet[3].animation = ("Invisible")
+	dealerbet[4].animation = ("Invisible")
+	dealerbet[5].animation = ("Invisible")
+	dealerbet[6].animation = ("Invisible")
+	dealerbet[7].animation = ("Invisible")
+	dealerbet[8].animation = ("Invisible")
+	dealerbet[9].animation = ("Invisible")

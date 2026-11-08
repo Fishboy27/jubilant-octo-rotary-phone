@@ -46,350 +46,420 @@ script = ExtResource("1_n5ewn")
 
 [node name="PlayerChip0" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(919, 503)
+position = Vector2(941.00006, 534)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip1" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(908, 483)
+position = Vector2(930.00006, 514)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip2" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(913.00006, 463.00003)
+position = Vector2(935.00006, 494)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip3" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(945.00006, 444.00003)
+position = Vector2(967.00006, 475)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip4" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(927.00006, 424.00003)
+position = Vector2(949.00006, 455)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip5" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(904, 404)
+position = Vector2(926.00006, 435)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip6" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(918, 384)
+position = Vector2(940.00006, 415)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip7" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(924, 364)
+position = Vector2(946.00006, 395)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip8" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(910, 344)
+position = Vector2(932.00006, 375)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip9" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(917, 324.00006)
+position = Vector2(939.00006, 355.00006)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip10" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(932, 304.00006)
+position = Vector2(954.00006, 335.00006)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip11" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(923, 284.00006)
+position = Vector2(945.00006, 315.00006)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip12" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(940.00006, 264.00006)
+position = Vector2(962.00006, 295.00006)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip13" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(929.00006, 244.00009)
+position = Vector2(951.00006, 275.00006)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip14" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(925.00006, 224.00009)
+position = Vector2(947.00006, 255.00009)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip15" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(934.00006, 204.00009)
+position = Vector2(956.00006, 235.00009)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip16" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(941.00006, 184.00009)
+position = Vector2(963.00006, 215.00009)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip17" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(939.00006, 164.00009)
+position = Vector2(961.00006, 195.00009)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip18" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(926.00006, 144.00009)
+position = Vector2(948.00006, 175.00009)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerChip19" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(955, 124.000114)
+position = Vector2(977.00006, 155.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip0" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(955.00006, -18.999878)
+position = Vector2(955, -4.999878)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip1" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(965, 1.0001221)
+position = Vector2(965, 15.000122)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip2" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(943, 21.000118)
+position = Vector2(943, 35.000114)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip3" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(959, 41.00012)
+position = Vector2(959, 55.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip4" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(967, 61.000114)
+position = Vector2(967, 75.000114)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip5" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(964.00006, 81.000114)
+position = Vector2(964, 95.000114)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip6" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(950, 101.000114)
+position = Vector2(950, 115.000114)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip7" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(979, 121.00012)
+position = Vector2(979, 135.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip8" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(970.00006, 141.00012)
+position = Vector2(970, 155.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip9" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(951.00006, 161.00012)
+position = Vector2(951, 175.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip10" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(959.00006, 181.00012)
+position = Vector2(959, 195.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip11" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(963, 201.00012)
+position = Vector2(963, 215.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip12" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(977, 221.00014)
+position = Vector2(977, 235.00015)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip13" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(940.00006, 241.00012)
+position = Vector2(940, 255.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip14" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(947.00006, 261.00012)
+position = Vector2(947, 275.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip15" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(960, 281.00012)
+position = Vector2(960, 295.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip16" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(954.00006, 301.00012)
+position = Vector2(954, 315.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip17" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(966.00006, 321.00012)
+position = Vector2(966, 335.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip18" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(934.00006, 341.00015)
+position = Vector2(934, 355.00015)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="DealerChip19" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(980, 361.00015)
+position = Vector2(980, 375.00015)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet0" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(158.00006, 520.99994)
+position = Vector2(95.00007, 536)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet1" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(158.00006, 520.99994)
+position = Vector2(103.00007, 516)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet2" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(171.00006, 500.99997)
+position = Vector2(116.00007, 495.99997)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet3" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(154.00006, 480.99994)
+position = Vector2(99.00007, 475.99997)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet4" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(165.00006, 460.99994)
+position = Vector2(110.00007, 455.99997)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet5" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(185.00006, 440.99997)
+position = Vector2(130.00006, 435.99997)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet6" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(145.00006, 420.99994)
+position = Vector2(90.00007, 415.99997)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet7" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(176.00006, 400.99997)
+position = Vector2(121.00007, 395.99997)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet8" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(195.00006, 380.99997)
+position = Vector2(140.00006, 375.99997)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
 
 [node name="PlayerBet9" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(161.00006, 360.99994)
+position = Vector2(106.00007, 355.99997)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet0" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(106.00008, -4.999878)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet1" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(115.00008, 15.00013)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet2" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(100.00008, 35.000122)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet3" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(110.00008, 55.000122)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet4" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(131.00009, 75.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet5" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(138.00009, 95.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet6" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(128.00009, 115.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet7" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(113.00009, 135.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet8" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(108.00009, 155.00012)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_wsxyd")
+animation = &"Blue"
+
+[node name="DealerBet9" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(118.00009, 175.00012)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_wsxyd")
 animation = &"Blue"
