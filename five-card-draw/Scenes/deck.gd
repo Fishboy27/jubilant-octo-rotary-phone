@@ -46,8 +46,6 @@ $Dealer_cover_card3, $Dealer_cover_card4, $Dealer_cover_card5]
 
 @onready var card_back: Sprite2D = $CardBack
 
-@onready var card_back_2: Sprite2D = $CardBack2
-
 
 var playercard
 var dealercard
@@ -74,10 +72,33 @@ func _process(delta: float) -> void:
 	
 	if Global.canswitch:
 		Global.canswitch = false
-		_switch_card_dealer(Global.switchingcardplayer + 3)
+		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
 		await get_tree().create_timer(1).timeout
-		_switch_card_dealer(Global.switchingcardplayer + 4)
+		Global.switchingcarddealer += 1
+		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
+		await get_tree().create_timer(1).timeout
+		Global.switchingcarddealer += 1
+		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
+		await get_tree().create_timer(1).timeout
+		Global.switchingcarddealer += 1
+		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
+		await get_tree().create_timer(1).timeout
+		Global.switchingcarddealer += 1
+		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
+		await get_tree().create_timer(3).timeout
+		Global.reveal = true
 
+	if Global.reveal:
+		Global.reveal = false
+		_show_dealer_hand(0)
+		await get_tree().create_timer(0.15).timeout
+		_show_dealer_hand(1)
+		await get_tree().create_timer(0.15).timeout
+		_show_dealer_hand(2)
+		await get_tree().create_timer(0.15).timeout
+		_show_dealer_hand(3)
+		await get_tree().create_timer(0.15).timeout
+		_show_dealer_hand(4)
 
 
 func _deal():
@@ -100,13 +121,13 @@ func _new_card_dealer():
 	dealercard.scale = Vector2(0, 5)
 	# Deals the cards out visually
 	var tween = get_tree().create_tween()
+	tween.tween_property(coverdealer[cardsplayeddealer], "scale", Vector2(5, 5), 0)
 	tween.tween_property(dealercard, "position", carddealerplace[cardsplayeddealer], 0.5)
 	tween.parallel().tween_property(coverdealer[cardsplayeddealer], "position", carddealerplace[cardsplayeddealer], 0.5)
 	tween.tween_property(coverdealer[cardsplayeddealer], "scale", Vector2(0, 5), 0)
 	tween.tween_property(dealercovercards[cardsplayeddealer], "scale", Vector2(5, 5), 0)
-	#tween.tween_property(dealercard, "scale", Vector2(5, 5), 0.07)
 	cardsplayeddealer += 1
-	var card = full_deck[0]
+	var card = full_deck[0][0]
 	full_deck.remove_at(0)
 	return card
 
@@ -139,7 +160,6 @@ func _switch_card_dealer(destination):
 	tween.parallel().tween_property(coverdealer[destination], "position", carddealerplace[destination], 0.5)
 	tween.tween_property(coverdealer[destination], "scale", Vector2(5, 5), 0)
 	tween.tween_property(dealercovercards[destination], "scale", Vector2(0, 5), 0)
-	
 	var card = full_deck[0]
 	full_deck.remove_at(0)
 	Global.dealerhand[destination] = 0
@@ -164,6 +184,12 @@ func _switch_card_player(destination):
 	Global.playerhand[destination] = 0
 	return card
 
+func _show_dealer_hand(slot):
+	var tween = get_tree().create_tween()
+	tween.tween_property(coverdealer[slot], "scale", Vector2(0, 5), 0.07)
+	tween.parallel().tween_property(dealercovercards[slot], "scale", Vector2(0, 5), 0.07)
+	tween.tween_property(Global.dealerhand[slot][0][0], "scale", Vector2(5, 5), 0.07)
+
 
 func _on_dealing_timer_timeout() -> void:
 	cardamount += 1
@@ -186,4 +212,5 @@ func _initialise():
 	dealer_cover_card_3.scale = Vector2(0, 5)
 	dealer_cover_card_4.scale = Vector2(0, 5)
 	dealer_cover_card_5.scale = Vector2(0, 5)
-	card_back_2.scale = Vector2(0, 5)
+	$CardCoverDealer_slot5.scale = Vector2(0, 5)
+	$CardCoverDealer_slot4.scale = Vector2(0, 5)

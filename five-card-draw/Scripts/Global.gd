@@ -14,6 +14,7 @@ var dealercall : bool = true
 var canraise : bool = false
 var candeal : bool = true
 var canswitch : bool = false
+var reveal : bool = false
 var playerhand : Array = [0, 0, 0, 0, 0]
 var dealerhand : Array = [0, 0, 0, 0, 0]
 
