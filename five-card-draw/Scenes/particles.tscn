@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbk3nlqiie4jq"]
+
+[ext_resource type="Script" uid="uid://beug6un5fnw3i" path="res://Scenes/particles.gd" id="1_lrx72"]
+
+[node name="Particles" type="Node2D"]
+script = ExtResource("1_lrx72")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+z_index = 4
+position = Vector2(582, 322)
+amount = 75
+lifetime = 10.0
+randomness = 1.0
+emission_shape = 3
+emission_rect_extents = Vector2(600, 350)
+direction = Vector2(1, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+orbit_velocity_min = -0.03
+orbit_velocity_max = 0.03
+angle_min = -90.0
+angle_max = 90.0
+scale_amount_min = 2.0
+scale_amount_max = 12.0
+color = Color(0.023529412, 0.17254902, 0, 1)
+hue_variation_min = -1.0
+hue_variation_max = 1.0
