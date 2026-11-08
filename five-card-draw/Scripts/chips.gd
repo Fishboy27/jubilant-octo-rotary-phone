@@ -37,8 +37,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if start:
 		_showplayerchips()
-		#_showdealerchips()
-		_showdealerbet()
+		_showdealerchips()
 		start = false
 
 	if Global.canraise:
@@ -65,8 +64,13 @@ func _process(delta: float) -> void:
 					playerchipcount -= 1
 				else:
 					playerchipcount = 19
-			Global.playerraiseamount = 0
 			_showplayerbet()
+			if Global.dealercall:
+				Global.dealerraiseamount = Global.playerraiseamount
+				await get_tree().create_timer(2).timeout
+				_showdealerbet()
+				Global.dealercall = false
+			Global.playerraiseamount = 0
 			Global.canraise = false
 
 
