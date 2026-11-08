@@ -11,6 +11,7 @@
 [node name="Table" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -10
 position = Vector2(573.5, 324)
 scale = Vector2(1.2937853, 1.2393823)
 texture = ExtResource("1_r4jc3")

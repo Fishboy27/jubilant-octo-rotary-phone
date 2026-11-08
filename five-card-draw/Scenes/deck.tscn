@@ -372,136 +372,147 @@ scale = Vector2(5, 5)
 texture = ExtResource("52_g3jpn")
 
 [node name="CardBack" type="Sprite2D" parent="."]
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverDealer_slot5" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverPlayer_slot5" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverDealer_slot4" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverPlayer_slot4" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverDealer_slot3" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverPlayer_slot3" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverDealer_slot2" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverPlayer_slot2" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverDealer_slot" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="CardCoverPlayer_slot" type="Sprite2D" parent="."]
-z_index = 1
+z_index = 2
 texture_filter = 1
 position = Vector2(503.00006, 333.00006)
 scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="Cardplace" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(273, 526)
 scale = Vector2(5, 5)
 texture = ExtResource("54_uj0am")
 
 [node name="Cardplace2" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(388.00003, 526)
 scale = Vector2(5, 5)
 texture = ExtResource("54_uj0am")
 
 [node name="Cardplace3" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(503.00003, 526)
 scale = Vector2(5, 5)
 texture = ExtResource("54_uj0am")
 
 [node name="Cardplace4" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(618, 526)
 scale = Vector2(5, 5)
 texture = ExtResource("54_uj0am")
 
 [node name="Cardplace5" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(733, 526)
 scale = Vector2(5, 5)
 texture = ExtResource("54_uj0am")
 
 [node name="Cardplace6" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(273, 143.00003)
 scale = Vector2(5, 5)
 texture = ExtResource("54_uj0am")
 
 [node name="Cardplace7" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(388, 143.00003)
 scale = Vector2(5, 5)
 texture = ExtResource("54_uj0am")
 
 [node name="Cardplace8" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(503, 143.00003)
 scale = Vector2(5, 5)
 texture = ExtResource("54_uj0am")
 
 [node name="Cardplace9" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(618, 143.00003)
 scale = Vector2(5, 5)
 texture = ExtResource("54_uj0am")
 
 [node name="Cardplace10" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 position = Vector2(733, 143.00003)
 scale = Vector2(5, 5)
@@ -536,6 +547,66 @@ scale = Vector2(5, 5)
 texture = ExtResource("55_4123b")
 
 [node name="Dealer_cover_card5" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(733.00006, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card6" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(273, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card7" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(387, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card8" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(503.00003, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card9" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(618, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card10" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(733.00006, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card11" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(273, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card12" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(387, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card13" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(503.00003, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card14" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(618, 143)
+scale = Vector2(5, 5)
+texture = ExtResource("55_4123b")
+
+[node name="Dealer_cover_card15" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(733.00006, 143)
 scale = Vector2(5, 5)
