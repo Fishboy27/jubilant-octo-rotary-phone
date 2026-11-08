@@ -32,12 +32,6 @@ $Cardplace3.position, $Cardplace4.position, $Cardplace5.position]
 @onready var dealercovercards : Array = [$Dealer_cover_card, $Dealer_cover_card2, 
 $Dealer_cover_card3, $Dealer_cover_card4, $Dealer_cover_card5]
 
-@onready var dealercovercardsback : Array = [$Dealer_cover_card6, $Dealer_cover_card7, 
-$Dealer_cover_card8, $Dealer_cover_card9, $Dealer_cover_card10]
-
-@onready var dealercovercardsfinal : Array = [$Dealer_cover_card11, $Dealer_cover_card12, 
-$Dealer_cover_card13, $Dealer_cover_card14, $Dealer_cover_card15]
-
 @onready var dealing_timer: Timer = $Dealing_timer
 
 @onready var dealer_cover_card: Sprite2D = $Dealer_cover_card
@@ -50,27 +44,10 @@ $Dealer_cover_card13, $Dealer_cover_card14, $Dealer_cover_card15]
 
 @onready var dealer_cover_card_5: Sprite2D = $Dealer_cover_card5
 
-@onready var dealer_cover_card_6: Sprite2D = $Dealer_cover_card6
-
-@onready var dealer_cover_card_7: Sprite2D = $Dealer_cover_card7
-
-@onready var dealer_cover_card_8: Sprite2D = $Dealer_cover_card8
-
-@onready var dealer_cover_card_9: Sprite2D = $Dealer_cover_card9
-
-@onready var dealer_cover_card_10: Sprite2D = $Dealer_cover_card10
-
-@onready var dealer_cover_card_11: Sprite2D = $Dealer_cover_card11
-
-@onready var dealer_cover_card_12: Sprite2D = $Dealer_cover_card12
-
-@onready var dealer_cover_card_13: Sprite2D = $Dealer_cover_card13
-
-@onready var dealer_cover_card_14: Sprite2D = $Dealer_cover_card14
-
-@onready var dealer_cover_card_15: Sprite2D = $Dealer_cover_card15
-
 @onready var card_back: Sprite2D = $CardBack
+
+@onready var card_back_2: Sprite2D = $CardBack2
+
 
 var playercard
 var dealercard
@@ -97,21 +74,9 @@ func _process(delta: float) -> void:
 	
 	if Global.canswitch:
 		Global.canswitch = false
-		_switch_card_player(Global.switchingcardplayer)
-		await get_tree().create_timer(2).timeout
-		_switch_card_dealer(Global.switchingcarddealer)
-		await get_tree().create_timer(0.2).timeout
-		Global.switchingcarddealer += 1
-		_switch_card_dealer(Global.switchingcarddealer)
-		await get_tree().create_timer(0.2).timeout
-		Global.switchingcarddealer += 1
-		_switch_card_dealer(Global.switchingcarddealer)
-		await get_tree().create_timer(0.2).timeout
-		Global.switchingcarddealer += 1
-		_switch_card_dealer(Global.switchingcarddealer)
-		await get_tree().create_timer(0.2).timeout
-		Global.switchingcarddealer += 1
-		_switch_card_dealer(Global.switchingcarddealer)
+		_switch_card_dealer(Global.switchingcardplayer + 3)
+		await get_tree().create_timer(1).timeout
+		_switch_card_dealer(Global.switchingcardplayer + 4)
 
 
 
@@ -164,18 +129,17 @@ func _new_card_player():
 func _switch_card_dealer(destination):
 	dealercard = full_deck[0][0]
 	dealercard.scale = Vector2(0, 5)
-	# Deals the cards out visually
-	dealercovercardsback[destination].z_index += 1
+	# Deals the cards out visually-
+	#dealercovercardsback[destination].z_index -= 1
 	var tween = get_tree().create_tween()
-	tween.parallel().tween_property(coverdealer[destination], "position", card_back.position, 0)
+	tween.tween_property(coverdealer[destination], "position", card_back.position, 0)
 	tween.parallel().tween_property(coverdealer[destination], "scale", Vector2(5, 5), 0)
-	tween.tween_property(dealercovercards[destination], "scale", Vector2(0, 5), 0)
-	tween.parallel().tween_property(dealercovercardsback[destination], "scale", Vector2(5, 5), 0)
-	tween.parallel().tween_property(dealercovercardsback[destination], "position", card_back.position, 0.5)
+	tween.parallel().tween_property(dealercovercards[destination], "position", card_back.position, 0.5)
 	tween.tween_property(dealercard, "position", carddealerplace[destination], 0.5)
 	tween.parallel().tween_property(coverdealer[destination], "position", carddealerplace[destination], 0.5)
-	tween.tween_property(dealercovercardsfinal[destination], "scale", Vector2(5, 5), 0)
-	tween.parallel().tween_property(dealercovercardsback[destination], "scale", Vector2(0, 5), 0)
+	tween.tween_property(coverdealer[destination], "scale", Vector2(5, 5), 0)
+	tween.tween_property(dealercovercards[destination], "scale", Vector2(0, 5), 0)
+	
 	var card = full_deck[0]
 	full_deck.remove_at(0)
 	Global.dealerhand[destination] = 0
@@ -222,13 +186,4 @@ func _initialise():
 	dealer_cover_card_3.scale = Vector2(0, 5)
 	dealer_cover_card_4.scale = Vector2(0, 5)
 	dealer_cover_card_5.scale = Vector2(0, 5)
-	dealer_cover_card_6.scale = Vector2(0, 5)
-	dealer_cover_card_7.scale = Vector2(0, 5)
-	dealer_cover_card_8.scale = Vector2(0, 5)
-	dealer_cover_card_9.scale = Vector2(0, 5)
-	dealer_cover_card_10.scale = Vector2(0, 5)
-	dealer_cover_card_11.scale = Vector2(0, 5)
-	dealer_cover_card_12.scale = Vector2(0, 5)
-	dealer_cover_card_13.scale = Vector2(0, 5)
-	dealer_cover_card_14.scale = Vector2(0, 5)
-	dealer_cover_card_15.scale = Vector2(0, 5)
+	card_back_2.scale = Vector2(0, 5)
