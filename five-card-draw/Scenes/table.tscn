@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cex846ttusjk6"]
+[gd_scene load_steps=9 format=3 uid="uid://cex846ttusjk6"]
 
 [ext_resource type="Texture2D" uid="uid://22yo4aun86oc" path="res://Art/Background.png" id="1_r4jc3"]
 [ext_resource type="Texture2D" uid="uid://d2guskptj0f8r" path="res://Art/vignette.png" id="2_0xndo"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cbk3nlqiie4jq" path="res://Scenes/particles.tscn" id="7_o4lkm"]
 [ext_resource type="Texture2D" uid="uid://dosyrmd33p1d2" path="res://Art/FinFace.PNG" id="7_usajj"]
 [ext_resource type="Texture2D" uid="uid://dlydna4243prf" path="res://Art/Boos Battle (1).png" id="8_o4lkm"]
+[ext_resource type="PackedScene" uid="uid://d1lv0ntiec6j0" path="res://Scenes/hand_analyser.tscn" id="8_xexre"]
 
 [node name="Table" type="Node2D"]
 
@@ -36,3 +37,5 @@ texture = ExtResource("8_o4lkm")
 [node name="Deck" parent="." instance=ExtResource("6_usajj")]
 
 [node name="Particles" parent="." instance=ExtResource("7_o4lkm")]
+
+[node name="Hand_analyser" parent="." instance=ExtResource("8_xexre")]

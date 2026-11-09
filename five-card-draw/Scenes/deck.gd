@@ -4,13 +4,13 @@ extends Node2D
 
 @onready var full_deck = [
 	[$C2, 2, 0], [$C3, 3, 0], [$C4, 4, 0], [$C5, 5, 0], [$C6, 6, 0], [$C7, 7, 0], [$C8, 8, 0], 
-	[$C9, 9, 0], [$C10, 10, 0], [$Cj, 10, 0], [$Cq, 10, 0], [$Ck, 10, 0], [$Ca, 11, 0], 
+	[$C9, 9, 0], [$C10, 10, 0], [$Cj, 11, 0], [$Cq, 12, 0], [$Ck, 13, 0], [$Ca, 14, 0], 
 	[$D2, 2, 1], [$D3, 3, 1], [$D4, 4, 1], [$D5, 5, 1], [$D6, 6, 1], [$D7, 7, 1], [$D8, 8, 1], 
-	[$D9, 9, 1], [$D10, 10, 1], [$Dj, 10, 1], [$Dq, 10, 1], [$Dk, 10, 1], [$Da, 11, 1], 
+	[$D9, 9, 1], [$D10, 10, 1], [$Dj, 11, 1], [$Dq, 12, 1], [$Dk, 13, 1], [$Da, 14, 1], 
 	[$H2, 2, 2], [$H3, 3, 2], [$H4, 4, 2], [$H5, 5, 2], [$H6, 6, 2], [$H7, 7, 2], [$H8, 8, 2],
-	[$H9, 9, 2], [$H10, 10, 2], [$Hj, 10, 2], [$Hq, 10, 2], [$Hk, 10, 2], [$Ha, 11, 2],
+	[$H9, 9, 2], [$H10, 10, 2], [$Hj, 11, 2], [$Hq, 12, 2], [$Hk, 13, 2], [$Ha, 14, 2],
 	[$S2, 2, 3], [$S3, 3, 3], [$S4, 4, 3], [$S5, 5, 3], [$S6, 6, 3], [$S7, 7, 3], [$S8, 8, 3], 
-	[$S9, 9, 3], [$S10, 10, 3], [$Sj, 10, 3], [$Sq, 10, 3], [$Sk, 10, 3], [$Sa, 11, 3]
+	[$S9, 9, 3], [$S10, 10, 3], [$Sj, 11, 3], [$Sq, 12, 3], [$Sk, 13, 3], [$Sa, 14, 3]
 ]
 
 
@@ -72,19 +72,21 @@ func _process(delta: float) -> void:
 	
 	if Global.canswitch:
 		Global.canswitch = false
-		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
+		Global.playerhand[Global.switchingcardplayer] = _switch_card_player(Global.switchingcardplayer)
+		await get_tree().create_timer(2).timeout
+		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
 		await get_tree().create_timer(1).timeout
 		Global.switchingcarddealer += 1
-		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
+		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
 		await get_tree().create_timer(1).timeout
 		Global.switchingcarddealer += 1
-		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
+		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
 		await get_tree().create_timer(1).timeout
 		Global.switchingcarddealer += 1
-		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
+		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
 		await get_tree().create_timer(1).timeout
 		Global.switchingcarddealer += 1
-		Global.dealerhand[Global.switchingcarddealer] = [_switch_card_dealer(Global.switchingcarddealer)]
+		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
 		await get_tree().create_timer(3).timeout
 		Global.reveal = true
 
@@ -127,7 +129,7 @@ func _new_card_dealer():
 	tween.tween_property(coverdealer[cardsplayeddealer], "scale", Vector2(0, 5), 0)
 	tween.tween_property(dealercovercards[cardsplayeddealer], "scale", Vector2(5, 5), 0)
 	cardsplayeddealer += 1
-	var card = full_deck[0][0]
+	var card = full_deck[0]
 	full_deck.remove_at(0)
 	return card
 
@@ -188,7 +190,7 @@ func _show_dealer_hand(slot):
 	var tween = get_tree().create_tween()
 	tween.tween_property(coverdealer[slot], "scale", Vector2(0, 5), 0.07)
 	tween.parallel().tween_property(dealercovercards[slot], "scale", Vector2(0, 5), 0.07)
-	tween.tween_property(Global.dealerhand[slot][0][0], "scale", Vector2(5, 5), 0.07)
+	tween.tween_property(Global.dealerhand[slot][0], "scale", Vector2(5, 5), 0.07)
 
 
 func _on_dealing_timer_timeout() -> void:
@@ -199,13 +201,13 @@ func _on_dealing_timer_timeout() -> void:
 func _initialise():
 	full_deck = [
 	[$C2, 2, 0], [$C3, 3, 0], [$C4, 4, 0], [$C5, 5, 0], [$C6, 6, 0], [$C7, 7, 0], [$C8, 8, 0], 
-	[$C9, 9, 0], [$C10, 10, 0], [$Cj, 10, 0], [$Cq, 10, 0], [$Ck, 10, 0], [$Ca, 11, 0], 
+	[$C9, 9, 0], [$C10, 10, 0], [$Cj, 11, 0], [$Cq, 12, 0], [$Ck, 13, 0], [$Ca, 14, 0], 
 	[$D2, 2, 1], [$D3, 3, 1], [$D4, 4, 1], [$D5, 5, 1], [$D6, 6, 1], [$D7, 7, 1], [$D8, 8, 1], 
-	[$D9, 9, 1], [$D10, 10, 1], [$Dj, 10, 1], [$Dq, 10, 1], [$Dk, 10, 1], [$Da, 11, 1], 
+	[$D9, 9, 1], [$D10, 10, 1], [$Dj, 11, 1], [$Dq, 12, 1], [$Dk, 13, 1], [$Da, 14, 1], 
 	[$H2, 2, 2], [$H3, 3, 2], [$H4, 4, 2], [$H5, 5, 2], [$H6, 6, 2], [$H7, 7, 2], [$H8, 8, 2],
-	[$H9, 9, 2], [$H10, 10, 2], [$Hj, 10, 2], [$Hq, 10, 2], [$Hk, 10, 2], [$Ha, 11, 2],
+	[$H9, 9, 2], [$H10, 10, 2], [$Hj, 11, 2], [$Hq, 12, 2], [$Hk, 13, 2], [$Ha, 14, 2],
 	[$S2, 2, 3], [$S3, 3, 3], [$S4, 4, 3], [$S5, 5, 3], [$S6, 6, 3], [$S7, 7, 3], [$S8, 8, 3], 
-	[$S9, 9, 3], [$S10, 10, 3], [$Sj, 10, 3], [$Sq, 10, 3], [$Sk, 10, 3], [$Sa, 11, 3]
+	[$S9, 9, 3], [$S10, 10, 3], [$Sj, 11, 3], [$Sq, 12, 3], [$Sk, 13, 3], [$Sa, 14, 3]
 	]
 	dealer_cover_card.scale = Vector2(0, 5)
 	dealer_cover_card_2.scale = Vector2(0, 5)
