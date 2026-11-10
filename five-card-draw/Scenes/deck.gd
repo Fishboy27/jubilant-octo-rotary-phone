@@ -67,8 +67,6 @@ func _process(delta: float) -> void:
 	if Global.candeal:
 		_deal()
 		Global.candeal = false
-		await get_tree().create_timer(4).timeout
-		Global.canswitch = true
 	
 	if Global.canswitch:
 		Global.canswitch = false
@@ -88,7 +86,6 @@ func _process(delta: float) -> void:
 		Global.switchingcarddealer += 1
 		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
 		await get_tree().create_timer(3).timeout
-		Global.reveal = true
 
 	if Global.reveal:
 		Global.reveal = false
@@ -101,6 +98,8 @@ func _process(delta: float) -> void:
 		_show_dealer_hand(3)
 		await get_tree().create_timer(0.15).timeout
 		_show_dealer_hand(4)
+		Global.analyseplayer = true
+		Global.analysedealer = true
 
 
 func _deal():
@@ -116,6 +115,8 @@ func _deal():
 			Global.dealerhand[Global.dealercardplace] = _new_card_dealer()
 			Global.dealercardplace += 1
 			dealing_timer.start()
+	Global.analyseplayer = true
+	Global.round += 1
 
 
 func _new_card_dealer():

@@ -45,14 +45,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if analyse:
-		analyse = false
-		await get_tree().create_timer(16).timeout
-		_Analysedealerhand()
+	if Global.analyseplayer:
+		Global.analyseplayer = false
 		_Analyseplayerhand()
+	
+	if Global.analysedealer:
+		Global.analysedealer = false
+		_Analysedealerhand()
 		_Winner()
 
 func _Analysedealerhand():
+	_Initailise()
 	for i in range(5):
 		dealervalues.append(Global.dealerhand[i][1])
 		dealersuits.append(Global.dealerhand[i][2])
@@ -138,6 +141,7 @@ func _Analysedealerhand():
 
 
 func _Analyseplayerhand():
+	_Initailise()
 	for i in range(5):
 		playervalues.append(Global.playerhand[i][1])
 		playersuits.append(Global.playerhand[i][2])
@@ -286,3 +290,38 @@ func _Winner():
 			
 		else:
 			print("Tie")
+
+func _Initailise():
+	playervalues = []
+	playersuits = []
+	playersamecard = {}
+	analyse = true
+	playerflush = false
+	playerstraight = false
+	playerroyalflush = false
+	playerfourofakind = false
+	playerthreeofakind = false
+	playertwopair = false
+	playerpair = false
+	playerhighcard = false
+	playerpairs = 0
+	playerhandrank = 0
+	playerpairvalue = 0
+	playerthreevalue = 0
+	playerfourvalue = 0
+	dealervalues = []
+	dealersuits = []
+	dealersamecard = {}
+	dealerflush = false
+	dealerstraight = false
+	dealerroyalflush = false
+	dealerfourofakind = false
+	dealerthreeofakind = false
+	dealertwopair = false
+	dealerpair = false
+	dealerhighcard = false
+	dealerpairs  = 0
+	dealerhandrank = 0
+	dealerpairvalue = 0
+	dealerthreevalue = 0
+	dealerfourvalue = 0

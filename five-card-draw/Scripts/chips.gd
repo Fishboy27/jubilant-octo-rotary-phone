@@ -28,6 +28,7 @@ var playershownbet : int = 0
 var dealershownbet : int = 0
 var start : bool = true
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_initialise()
@@ -41,17 +42,21 @@ func _process(delta: float) -> void:
 		start = false
 
 	if Global.canraise:
-		if Input.is_action_just_pressed("Down") and Global.playerraiseamount < playershownchips and Global.playerraiseamount < dealershownchips + dealershownbet:
-			playerchips[playershownchips - Global.playerraiseamount - 1].animation = ("Highlighted")
+		var firstchipplayer = _first_visible_player_chip()
+		var firstchipdealer = _first_visible_dealer_chip()
+		print(firstchipplayer)
+		if Input.is_action_just_pressed("Down") and Global.playerraiseamount < firstchipplayer and Global.playerraiseamount < firstchipdealer + dealershownbet and not Global.hasbet:
 			Global.playerraiseamount += 1
-		if Input.is_action_just_pressed("Up") and Global.playerraiseamount > 0:
+			_Update_raise_highlight()
+		if Input.is_action_just_pressed("Up") and Global.playerraiseamount > 0 and not Global.hasbet:
 			Global.playerraiseamount -= 1
-			playerchips[playershownchips - Global.playerraiseamount - 1].animation = ("Blue")
-		if Input.is_action_just_pressed("Left"):
-			_showplayerchips()
-			Global.playerraiseamount = 0
-			Global.canraise = false
+			_Update_raise_highlight()
+		#if Input.is_action_just_pressed("Left"):
+			#_showplayerchips()
+			#Global.playerraiseamount = 0
+			#Global.canraise = false
 		if Input.is_action_just_pressed("Enter") and (Global.playerraiseamount > 0 or Global.playerraiseamount > Global.dealerraiseamount):
+			Global.hasbet = true
 			Global.playerbet += Global.playerraiseamount
 			playerchipcount = 19
 			for i in range(20):
@@ -66,40 +71,43 @@ func _process(delta: float) -> void:
 					playerchipcount = 19
 			_showplayerbet()
 			if Global.dealercall:
+				Global.dealercall = false
 				Global.dealerraiseamount = Global.playerraiseamount
 				await get_tree().create_timer(2).timeout
 				_showdealerbet()
-				Global.dealercall = false
+			Global.playerchips -= Global.playerraiseamount
 			Global.playerraiseamount = 0
+			Global.dealerraiseamount = 0
 			Global.canraise = false
+			print(Global.playerbet)
+			print(Global.dealerbet)
+
+	if Global.playerbet == Global.dealerbet and Global.hasbet and Global.match:
+		Global.round += 1
+		Global.match = false
 
 
 func _showplayerchips():
 	playershownchips = 0
+	playerchipcount = 19
 	for i in range(20):
-		if playerchipcount >= Global.playerchips:
-			playerchips[playerchipcount].animation = ("Invisible")
-			playerchipcount -= 1
-		elif playerchipcount >= 0:
-			playerchips[playerchipcount].animation = ("Blue")
+		if i < Global.playerchips:
+			playerchips[i].animation = "Blue"
 			playershownchips += 1
-			playerchipcount -= 1
 		else:
-			playerchipcount = 19
+			playerchips[i].animation = "Invisible"
 
 
 func _showdealerchips():
 	dealershownchips = 0
+	dealerchipcount= 19
 	for i in range(20):
-		if dealerchipcount >= Global.dealerchips:
-			dealerchips[dealerchipcount].animation = ("Invisible")
-			dealerchipcount -= 1
-		elif dealerchipcount >= 0:
-			dealerchips[dealerchipcount].animation = ("Blue")
+		if i < Global.dealerchips:
+			dealerchips[i].animation = "Blue"
 			dealershownchips += 1
-			dealerchipcount -= 1
 		else:
-			dealerchipcount = 19
+			dealerchips[i].animation = "Invisible"
+
 
 func _showplayerbet():
 	playershownbet = 0
@@ -115,30 +123,44 @@ func _showplayerbet():
 			playerbetcount = 9
 
 func _showdealerbet():
+	dealerbetcount = 9
 	Global.dealerbet += Global.dealerraiseamount
-	dealerchipcount = 19
-	for i in range(20):
-		if dealerchipcount >= Global.dealerchips - Global.dealerraiseamount:
-			dealerchips[dealerchipcount].animation = ("Invisible")
-			dealerchipcount -= 1
-		elif dealerchipcount >= 0:
-			dealerchips[dealerchipcount].animation = ("Blue")
-			dealershownchips += 1
-			dealerchipcount -= 1
-		else:
-			dealerchipcount = 19
+	Global.dealerchips -= Global.dealerraiseamount
+	_showdealerchips()
 	Global.dealerraiseamount = 0
 	dealershownbet = 0
+	dealerbetcount = 9
 	for i in range(10):
-		if dealerbetcount >= Global.dealerbet:
-			dealerbet[dealerbetcount].animation = ("Invisible")
-			dealerbetcount -= 1
-		elif dealerbetcount >= 0:
-			dealerbet[dealerbetcount].animation = ("Blue")
+		if i < Global.dealerbet:
+			dealerbet[i].animation = "Blue"
 			dealershownbet += 1
-			dealerbetcount -= 1
 		else:
-			dealerbetcount = 9
+			dealerbet[i].animation = "Invisible"
+
+
+func _first_visible_player_chip():
+	for i in range(playerchips.size() -1, -1, -1):
+		if playerchips[i].animation != "Invisible":
+			return i
+	return -1
+
+
+func _first_visible_dealer_chip():
+	for i in range(dealerchips.size() -1, -1, -1):
+		if dealerchips[i].animation != "Invisible":
+			return i
+	return -1
+
+
+func _Update_raise_highlight():
+	var firstchip = _first_visible_player_chip()
+	if firstchip == -1:
+		return
+	for i in range(Global.playerchips):
+		playerchips[i].animation = "Blue"
+	for i in range(Global.playerraiseamount):
+		playerchips[firstchip - i].animation = "Highlighted"
+
 
 func _initialise():
 	playerchips[0].animation = ("Invisible")
