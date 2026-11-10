@@ -25,6 +25,7 @@ func _process(delta: float) -> void:
 		Global.hasbet = false
 		Global.canraise = true
 		Global.match = true
+		Global.dealercall = true
 		print("Round 1")
 
 	if Global.round == 2 and not roundtwoactivated:
@@ -65,6 +66,7 @@ func _process(delta: float) -> void:
 		print("Round 6")
 		await get_tree().create_timer(4).timeout
 		_Initialise()
+		Global.reset = true
 		Global.round = 1
 
 func _Initialise():

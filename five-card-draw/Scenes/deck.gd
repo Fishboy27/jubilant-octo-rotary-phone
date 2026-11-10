@@ -44,6 +44,27 @@ $Dealer_cover_card3, $Dealer_cover_card4, $Dealer_cover_card5]
 
 @onready var dealer_cover_card_5: Sprite2D = $Dealer_cover_card5
 
+@onready var card_cover_dealer_slot_5: Sprite2D = $CardCoverDealer_slot5
+
+@onready var card_cover_player_slot_5: Sprite2D = $CardCoverPlayer_slot5
+
+@onready var card_cover_dealer_slot_4: Sprite2D = $CardCoverDealer_slot4
+
+@onready var card_cover_player_slot_4: Sprite2D = $CardCoverPlayer_slot4
+
+@onready var card_cover_dealer_slot_3: Sprite2D = $CardCoverDealer_slot3
+
+@onready var card_cover_player_slot_3: Sprite2D = $CardCoverPlayer_slot3
+
+@onready var card_cover_dealer_slot_2: Sprite2D = $CardCoverDealer_slot2
+
+@onready var card_cover_player_slot_2: Sprite2D = $CardCoverPlayer_slot2
+
+@onready var card_cover_dealer_slot: Sprite2D = $CardCoverDealer_slot
+
+@onready var card_cover_player_slot: Sprite2D = $CardCoverPlayer_slot
+
+
 @onready var card_back: Sprite2D = $CardBack
 
 
@@ -65,10 +86,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.candeal:
+		Global.candeal = false
 		_initialise()
 		_deal()
-		Global.candeal = false
 	
+	if Global.reset:
+		Global.reset = false
+		await get_tree().create_timer(0.85).timeout
+		_initialise()
+
 	if Global.canswitch:
 		Global.canswitch = false
 		Global.playerhand[Global.switchingcardplayer] = _switch_card_player(Global.switchingcardplayer)
@@ -101,13 +127,15 @@ func _process(delta: float) -> void:
 
 
 func _deal():
-	_initialise()
 	full_deck.shuffle()
 	while cardamount < 9:
 		await get_tree().create_timer(0.2).timeout
 		if nextdeal > 0:
+			print(Global.playerhand)
+			print(Global.playercardplace)
 			Global.playerhand[Global.playercardplace] = _new_card_player()
 			Global.playercardplace += 1
+			print(Global.playercardplace)
 			dealing_timer.start()
 		elif nextdeal < 0:
 			Global.dealerhand[Global.dealercardplace] = _new_card_dealer()
@@ -210,13 +238,33 @@ func _initialise():
 	[$S2, 2, 3], [$S3, 3, 3], [$S4, 4, 3], [$S5, 5, 3], [$S6, 6, 3], [$S7, 7, 3], [$S8, 8, 3], 
 	[$S9, 9, 3], [$S10, 10, 3], [$Sj, 11, 3], [$Sq, 12, 3], [$Sk, 13, 3], [$Sa, 14, 3]
 	]
+	covercountplayer = 0
+	covercountdealer = 0
+	cardamount = 0
+	nextdeal = 1
+	cardsplayedplayer = 0
+	cardsplayeddealer = 0
+	Global.playercardplace = 0
+	Global.dealercardplace = 0
+	Global.switchingcardplayer = 0
+	Global.switchingcarddealer = 0
+	Global.playerhand = [0, 0, 0, 0, 0]
+	Global.dealerhand = [0 ,0 ,0 ,0, 0]
 	dealer_cover_card.scale = Vector2(0, 5)
 	dealer_cover_card_2.scale = Vector2(0, 5)
 	dealer_cover_card_3.scale = Vector2(0, 5)
 	dealer_cover_card_4.scale = Vector2(0, 5)
 	dealer_cover_card_5.scale = Vector2(0, 5)
-	$CardCoverDealer_slot5.scale = Vector2(0, 5)
-	$CardCoverDealer_slot4.scale = Vector2(0, 5)
+	card_cover_dealer_slot.scale = Vector2(0, 5)
+	card_cover_dealer_slot_2.scale = Vector2(0, 5)
+	card_cover_dealer_slot_3.scale = Vector2(0, 5)
+	card_cover_dealer_slot_4.scale = Vector2(0, 5)
+	card_cover_dealer_slot_5.scale = Vector2(0, 5)
+	card_cover_dealer_slot.position = Vector2(503, 333)
+	card_cover_dealer_slot_2.position = Vector2(503, 333)
+	card_cover_dealer_slot_3.position = Vector2(503, 333)
+	card_cover_dealer_slot_4.position = Vector2(503, 333)
+	card_cover_dealer_slot_5.position = Vector2(503, 333)
 	$C2.position = Vector2(503, 333)
 	$C3.position = Vector2(503, 333)
 	$C4.position = Vector2(503, 333)

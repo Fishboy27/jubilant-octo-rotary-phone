@@ -43,21 +43,21 @@ func _process(delta: float) -> void:
 
 	if Global.win:
 		Global.win = false
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(4).timeout
 		_Win()
 		_initialise()
 		start = true
 	
 	if Global.lose:
 		Global.lose = false
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(4).timeout
 		_Lose()
 		_initialise()
 		start = true
 
 	if Global.tie:
 		Global.tie = true
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(4).timeout
 		_Tie()
 		_initialise()
 		start = true
@@ -220,6 +220,8 @@ func _Lose():
 func _Tie():
 	print("Win")
 	playerchipcount = 19
+	Global.playerchips += Global.playerbet
+	Global.dealerchips += Global.dealerbet
 	for i in range(20):
 		if playerchipcount >= Global.playerchips - Global.playerraiseamount:
 			playerchips[playerchipcount].animation = ("Invisible")

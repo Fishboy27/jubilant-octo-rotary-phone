@@ -359,6 +359,7 @@ func _Win():
 	await get_tree().create_timer(4).timeout
 	win.visible = false
 	playerhand.text = " "
+	dealerhand.text = " "
 
 
 func _Tie():
@@ -366,6 +367,7 @@ func _Tie():
 	await get_tree().create_timer(4).timeout
 	tie.visible = false
 	playerhand.text = " "
+	dealerhand.text = " "
 
 
 func _Lose():
@@ -373,3 +375,4 @@ func _Lose():
 	await get_tree().create_timer(4).timeout
 	lose.visible = false
 	playerhand.text = " "
+	dealerhand.text = " "

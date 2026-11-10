@@ -24,6 +24,7 @@ var play : bool = true
 var win : bool = false
 var tie : bool = false
 var lose : bool = false
+var reset = false
 var playerhand : Array = [0, 0, 0, 0, 0]
 var dealerhand : Array = [0, 0, 0, 0, 0]
 
