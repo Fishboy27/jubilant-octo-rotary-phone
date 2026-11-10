@@ -63,6 +63,9 @@ func _process(delta: float) -> void:
 		# Reveal
 		Global.reveal = true
 		print("Round 6")
+		await get_tree().create_timer(4).timeout
+		_Initialise()
+		Global.round = 1
 
 func _Initialise():
 	roundoneactivated = false

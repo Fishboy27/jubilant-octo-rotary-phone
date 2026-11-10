@@ -65,6 +65,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Global.candeal:
+		_initialise()
 		_deal()
 		Global.candeal = false
 	
@@ -72,12 +73,10 @@ func _process(delta: float) -> void:
 		Global.canswitch = false
 		Global.playerhand[Global.switchingcardplayer] = _switch_card_player(Global.switchingcardplayer)
 		await get_tree().create_timer(2).timeout
-		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
-		await get_tree().create_timer(1).timeout
-		Global.switchingcarddealer += 1
-		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
-		await get_tree().create_timer(1).timeout
-		Global.switchingcarddealer += 1
+		Global.switchingcardplayer += 2
+		Global.playerhand[Global.switchingcardplayer] = _switch_card_player(Global.switchingcardplayer)
+		await get_tree().create_timer(2).timeout
+		Global.analyseplayer = true
 		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
 		await get_tree().create_timer(1).timeout
 		Global.switchingcarddealer += 2
@@ -96,6 +95,7 @@ func _process(delta: float) -> void:
 		_show_dealer_hand(3)
 		await get_tree().create_timer(0.15).timeout
 		_show_dealer_hand(4)
+		await get_tree().create_timer(0.15).timeout
 		Global.analyseplayer = true
 		Global.analysedealer = true
 
@@ -113,7 +113,9 @@ func _deal():
 			Global.dealerhand[Global.dealercardplace] = _new_card_dealer()
 			Global.dealercardplace += 1
 			dealing_timer.start()
+	await get_tree().create_timer(0.4).timeout
 	Global.analyseplayer = true
+	await get_tree().create_timer(1).timeout
 	Global.round += 1
 
 
@@ -215,3 +217,55 @@ func _initialise():
 	dealer_cover_card_5.scale = Vector2(0, 5)
 	$CardCoverDealer_slot5.scale = Vector2(0, 5)
 	$CardCoverDealer_slot4.scale = Vector2(0, 5)
+	$C2.position = Vector2(503, 333)
+	$C3.position = Vector2(503, 333)
+	$C4.position = Vector2(503, 333)
+	$C5.position = Vector2(503, 333)
+	$C6.position = Vector2(503, 333)
+	$C7.position = Vector2(503, 333)
+	$C8.position = Vector2(503, 333)
+	$C9.position = Vector2(503, 333)
+	$C10.position = Vector2(503, 333)
+	$Cj.position = Vector2(503, 333)
+	$Cq.position = Vector2(503, 333)
+	$Ck.position = Vector2(503, 333)
+	$Ca.position = Vector2(503, 333)
+	$D2.position = Vector2(503, 333)
+	$D3.position = Vector2(503, 333)
+	$D4.position = Vector2(503, 333)
+	$D5.position = Vector2(503, 333)
+	$D6.position = Vector2(503, 333)
+	$D7.position = Vector2(503, 333)
+	$D8.position = Vector2(503, 333)
+	$D9.position = Vector2(503, 333)
+	$D10.position = Vector2(503, 333)
+	$Dj.position = Vector2(503, 333)
+	$Dq.position = Vector2(503, 333)
+	$Dk.position = Vector2(503, 333)
+	$Da.position = Vector2(503, 333)
+	$H2.position = Vector2(503, 333)
+	$H3.position = Vector2(503, 333)
+	$H4.position = Vector2(503, 333)
+	$H5.position = Vector2(503, 333)
+	$H6.position = Vector2(503, 333)
+	$H7.position = Vector2(503, 333)
+	$H8.position = Vector2(503, 333)
+	$H9.position = Vector2(503, 333)
+	$H10.position = Vector2(503, 333)
+	$Hj.position = Vector2(503, 333)
+	$Hq.position = Vector2(503, 333)
+	$Hk.position = Vector2(503, 333)
+	$Ha.position = Vector2(503, 333)
+	$S2.position = Vector2(503, 333)
+	$S3.position = Vector2(503, 333)
+	$S4.position = Vector2(503, 333)
+	$S5.position = Vector2(503, 333)
+	$S6.position = Vector2(503, 333)
+	$S7.position = Vector2(503, 333)
+	$S8.position = Vector2(503, 333)
+	$S9.position = Vector2(503, 333)
+	$S10.position = Vector2(503, 333)
+	$Sj.position = Vector2(503, 333)
+	$Sq.position = Vector2(503, 333)
+	$Sk.position = Vector2(503, 333)
+	$Sa.position = Vector2(503, 333)

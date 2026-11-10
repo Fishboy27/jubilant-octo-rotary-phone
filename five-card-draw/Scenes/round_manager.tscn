@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://cpox5t3r0fh5g" path="res://Scenes/round_manager.gd" id="1_1vgcg"]
 
 [node name="Round_Manager" type="Node2D"]
+position = Vector2(0, 1)
 script = ExtResource("1_1vgcg")

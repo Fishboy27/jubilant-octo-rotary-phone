@@ -2,10 +2,20 @@ extends Node2D
 
 @onready var Globle = get_node("/root/Global")
 
+@onready var dealerhand: Label = $Dealerhand
+
+@onready var playerhand: Label = $Playerhand
+
+@onready var win: Label = $Win
+
+@onready var tie: Label = $Tie
+
+@onready var lose: Label = $Lose
+
+
 var playervalues : Array = []
 var playersuits : Array = []
 var playersamecard = {}
-var analyse : bool = true
 var playerflush : bool = false
 var playerstraight : bool = false
 var playerroyalflush : bool = false
@@ -19,6 +29,7 @@ var playerhandrank : int = 0
 var playerpairvalue : int = 0
 var playerthreevalue : int = 0
 var playerfourvalue : int = 0
+var playercount : int = 0
 
 var dealervalues : Array = []
 var dealersuits : Array = []
@@ -36,6 +47,7 @@ var dealerhandrank : int = 0
 var dealerpairvalue : int = 0
 var dealerthreevalue : int = 0
 var dealerfourvalue : int = 0
+var dealercount : int = 0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -55,7 +67,21 @@ func _process(delta: float) -> void:
 		_Winner()
 
 func _Analysedealerhand():
-	_Initailise()
+	dealerhandrank = 0
+	dealervalues = []
+	dealersuits = []
+	dealersamecard = {}
+	dealerflush = false
+	dealerstraight = false
+	dealerroyalflush = false
+	dealerfourofakind = false
+	dealerthreeofakind = false
+	dealertwopair = false
+	dealerpair = false
+	dealerhighcard = false
+	dealercount = 0
+	dealerpairs = 0
+	dealerhand.text = " "
 	for i in range(5):
 		dealervalues.append(Global.dealerhand[i][1])
 		dealersuits.append(Global.dealerhand[i][2])
@@ -89,59 +115,71 @@ func _Analysedealerhand():
 		else:
 			dealersamecard[dealervalues[i]] = 1
 	
-	for value in dealersamecard:
-		if dealersamecard[value] == 2:
-			dealerpairvalue = value
-		if dealersamecard[value] == 3:
-			dealerthreevalue = value
-		if dealersamecard[value] == 4:
-			dealerfourvalue = value
+	for dealervalue in dealersamecard:
+		if dealersamecard[dealervalue] == 2:
+			dealerpairvalue = dealervalue
+		if dealersamecard[dealervalue] == 3:
+			dealerthreevalue = dealervalue
+		if dealersamecard[dealervalue] == 4:
+			dealerfourvalue = dealervalue
 	
 	# Number of same cards
-	for count in dealersamecard.values():
-		if count == 2:
+	for dealercount in dealersamecard.values():
+		if dealercount == 2:
 			dealerpairs += 1
-		elif count == 3:
+		elif dealercount == 3:
 			dealerthreeofakind = true
-		elif count == 4:
+		elif dealercount == 4:
 			dealerfourofakind = true
 	
 	# Displaying hand
-	print("Dealer")
 	if dealerflush and dealerstraight and dealerroyalflush:
-		print("Royal Flush")
+		dealerhand.text = "Royal Flush"
 		dealerhandrank = 10
 	elif dealerflush and dealerstraight and not dealerroyalflush:
-		print("Straight Flush")
+		dealerhand.text = "Straight Flush"
 		dealerhandrank = 9
 	elif dealerfourofakind:
-		print("Four of a Kind")
+		dealerhand.text = "Four of a Kind"
 		dealerhandrank = 8
 	elif dealerthreeofakind and dealerpairs == 1:
-		print("Full House")
+		dealerhand.text = "Full House"
 		dealerhandrank = 7
 	elif dealerflush and not dealerstraight:
-		print("Flush")
+		dealerhand.text = "Flush"
 		playerhandrank = 6
 	elif dealerstraight and not dealerflush:
-		print("Straight")
+		dealerhand.text = "Straight"
 		dealerhandrank = 5
 	elif dealerthreeofakind:
-		print("Three of a Kind")
+		dealerhand.text = "Three of a Kind"
 		dealerhandrank = 4
 	elif dealerpairs == 2:
-		print("Two Pair")
+		dealerhand.text = "Two Pair"
 		dealerhandrank = 3
 	elif dealerpairs == 1:
-		print("Pair")
+		dealerhand.text = "Pair"
 		dealerhandrank = 2
 	else:
-		print("High Card")
+		dealerhand.text = "High Card"
 		dealerhandrank = 1
 
 
 func _Analyseplayerhand():
-	_Initailise()
+	playerhandrank = 0
+	playervalues = []
+	playersuits = []
+	playersamecard = {}
+	playerflush = false
+	playerstraight = false
+	playerroyalflush = false
+	playerfourofakind = false
+	playerthreeofakind = false
+	playertwopair = false
+	playerpair = false
+	playerhighcard = false
+	playerpairs = 0
+	playerhand.text = " "
 	for i in range(5):
 		playervalues.append(Global.playerhand[i][1])
 		playersuits.append(Global.playerhand[i][2])
@@ -156,7 +194,7 @@ func _Analyseplayerhand():
 		else:
 			playerflush = true
 			
-	#Straight
+	# Straight
 	for i in range(4):
 		if playervalues[i] + 1 != playervalues[i + 1]:
 			playerstraight = false
@@ -184,136 +222,154 @@ func _Analyseplayerhand():
 			playerfourvalue = value
 
 	# Number of same cards
-	for count in playersamecard.values():
-		if count == 2:
+	for playercount in playersamecard.values():
+		if playercount == 2:
 			playerpairs += 1
-		elif count == 3:
+		elif playercount == 3:
 			playerthreeofakind = true
-		elif count == 4:
+		elif playercount == 4:
 			playerfourofakind = true
 	
 	# Displaying hand
-	print("Player")
 	if playerflush and playerstraight and playerroyalflush:
-		print("Royal Flush")
+		playerhand.text = "Royal Flush"
 		playerhandrank = 10
 	elif playerflush and playerstraight and not playerroyalflush:
-		print("Straight Flush")
+		playerhand.text = "Straight Flush"
 		playerhandrank = 9
 	elif playerfourofakind:
-		print("Four of a Kind")
+		playerhand.text = "Four of a Kind"
 		playerhandrank = 8
 	elif playerthreeofakind and playerpairs == 1:
-		print("Full House")
+		playerhand.text = "Full House"
 		playerhandrank = 7
 	elif playerflush and not playerstraight:
-		print("Flush")
+		playerhand.text = "Flush"
 		playerhandrank = 6
 	elif playerstraight and not playerflush:
-		print("Straight")
+		playerhand.text = "Straight"
 		playerhandrank = 5
 	elif playerthreeofakind:
-		print("Three of a Kind")
+		playerhand.text = "Three of a Kind"
 		playerhandrank = 4
 	elif playerpairs == 2:
-		print("Two Pair")
+		playerhand.text = "Two Pair"
 		playerhandrank = 3
 	elif playerpairs == 1:
-		print("Pair")
+		playerhand.text = "Pair"
 		playerhandrank = 2
 	else:
-		print("High Card")
+		playerhand.text = "High Card"
 		playerhandrank = 1
 
 
 func _Winner():
-	print(playerhandrank)
-	print(dealerhandrank)
+	_Analyseplayerhand()
+	_Analysedealerhand()
 	if playerhandrank > dealerhandrank:
-		print("Player Win")
+		Global.win = true
+		_Win()
 	elif playerhandrank < dealerhandrank:
-		print("Dealer Win")
+		Global.lose = true
+		_Lose()
 	elif playerhandrank == dealerhandrank:
 		# High card or Straight or Flush or Four of a kind
 		if playerhandrank == 1 or playerhandrank == 5 or playerhandrank == 6 or playerhandrank == 9:
 			if playervalues[4] > dealervalues[4]:
-				print("Player Win")
+				Global.win = true
+				_Win()
 			elif playervalues[4] < dealervalues[4]:
-				print("Dealer Win")
+				Global.lose = true
+				_Lose()
 			elif playervalues[4] == playervalues[4]:
-				print("Tie")
+				Global.tie = true
+				_Tie()
 
 		# Pair
 		elif playerhandrank == 2:
 			if playerpairvalue > dealerpairvalue:
-				print("Player Win")
+				Global.win = true
+				_Win()
 			elif playerpairvalue < dealerpairvalue:
-				print("Dealer Win")
+				Global.lose = true
+				_Lose()
 			elif playerpairvalue == dealerpairvalue:
 				if playervalues[4] > dealervalues[4]:
-					print("Player Win")
+					Global.win = true
+					_Win()
 				elif playervalues[4] < dealervalues[4]:
-					print("Dealer Win")
+					Global.lose = true
+					_Lose()
 				elif playervalues[4] == playervalues[4]:
 					if playervalues[3] > dealervalues[3]:
-						print("Player Win")
+						Global.win = true
+						_Win()
 					elif playervalues[4] < dealervalues[4]:
-						print("Dealer Win")
+						Global.lose = true
+						_Lose()
 					elif playervalues[3] == playervalues[3]:
 						if playervalues[2] > dealervalues[2]:
-							print("Player Win")
+							Global.win = true
+							_Win()
 						elif playervalues[2] < dealervalues[2]:
-							print("Dealer Win")
+							Global.lose = true
+							_Lose()
 						elif playervalues[2] == playervalues[2]:
 							if playervalues[1] > dealervalues[1]:
-								print("Player Win")
+								Global.win = true
+								_Win()
 							elif playervalues[1] < dealervalues[1]:
-								print("Dealer Win")
+								Global.lose = true
+								_Lose()
 							elif playervalues[1] == playervalues[1]:
 								if playervalues[0] > dealervalues[0]:
-									print("Player Win")
+									Global.win = true
+									_Win()
 								elif playervalues[0] < dealervalues[0]:
-									print("Dealer Win")
+									Global.lose = true
+									_Lose()
 								elif playervalues[1] == playervalues[1]:
-									print("Tie")
+									Global.tie = true
+									_Tie()
 
 		# Three of a kind or Full house
 		elif playerhandrank == 3 or playerhandrank == 7:
 			if playerthreevalue > dealerthreevalue:
-				print("Player Win")
+				Global.win = true
+				_Win()
 			elif playerthreevalue < dealerthreevalue:
-				print("Dealer Win")
+				Global.lose = true
+				_Lose()
 		# Four of a kind
 		elif playerhandrank == 8:
 			if playerfourvalue > dealerfourvalue:
-				print("Player Win")
+				Global.win = true
+				_Win()
 			elif playerfourvalue < dealerfourvalue:
-				print("Dealer Win")
+				Global.lose = true
+				_Lose()
 			
 		else:
-			print("Tie")
+			Global.tie = true
+			_Tie()
 
-func _Initailise():
-	playervalues = []
-	playersuits = []
-	playersamecard = {}
-	analyse = true
-	playerflush = false
-	playerstraight = false
-	playerroyalflush = false
-	playerfourofakind = false
-	playerthreeofakind = false
-	playertwopair = false
-	playerpair = false
-	playerhighcard = false
-	dealervalues = []
-	dealersuits = []
-	dealersamecard = {}
-	dealerflush = false
-	dealerstraight = false
-	dealerroyalflush = false
-	dealerfourofakind = false
-	dealerthreeofakind = false
-	dealertwopair = false
-	dealerpair = false
-	dealerhighcard = false
+
+func _Win():
+	win.visible = true
+	await get_tree().create_timer(4).timeout
+	win.visible = false
+	playerhand.text = " "
+
+
+func _Tie():
+	tie.visible = true
+	await get_tree().create_timer(4).timeout
+	tie.visible = false
+	playerhand.text = " "
+
+
+func _Lose():
+	lose.visible = true
+	await get_tree().create_timer(4).timeout
+	lose.visible = false
+	playerhand.text = " "
