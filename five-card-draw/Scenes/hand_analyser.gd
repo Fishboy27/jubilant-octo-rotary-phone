@@ -227,6 +227,8 @@ func _Analyseplayerhand():
 
 
 func _Winner():
+	print(playerhandrank)
+	print(dealerhandrank)
 	if playerhandrank > dealerhandrank:
 		print("Player Win")
 	elif playerhandrank < dealerhandrank:
@@ -304,11 +306,6 @@ func _Initailise():
 	playertwopair = false
 	playerpair = false
 	playerhighcard = false
-	playerpairs = 0
-	playerhandrank = 0
-	playerpairvalue = 0
-	playerthreevalue = 0
-	playerfourvalue = 0
 	dealervalues = []
 	dealersuits = []
 	dealersamecard = {}
@@ -320,8 +317,3 @@ func _Initailise():
 	dealertwopair = false
 	dealerpair = false
 	dealerhighcard = false
-	dealerpairs  = 0
-	dealerhandrank = 0
-	dealerpairvalue = 0
-	dealerthreevalue = 0
-	dealerfourvalue = 0

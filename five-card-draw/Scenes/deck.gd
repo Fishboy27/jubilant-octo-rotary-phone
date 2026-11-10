@@ -80,12 +80,10 @@ func _process(delta: float) -> void:
 		Global.switchingcarddealer += 1
 		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
 		await get_tree().create_timer(1).timeout
-		Global.switchingcarddealer += 1
-		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
-		await get_tree().create_timer(1).timeout
-		Global.switchingcarddealer += 1
+		Global.switchingcarddealer += 2
 		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
 		await get_tree().create_timer(3).timeout
+		Global.round += 1
 
 	if Global.reveal:
 		Global.reveal = false

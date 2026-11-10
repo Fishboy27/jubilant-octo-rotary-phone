@@ -42,10 +42,7 @@ func _process(delta: float) -> void:
 		start = false
 
 	if Global.canraise:
-		var firstchipplayer = _first_visible_player_chip()
-		var firstchipdealer = _first_visible_dealer_chip()
-		print(firstchipplayer)
-		if Input.is_action_just_pressed("Down") and Global.playerraiseamount < firstchipplayer and Global.playerraiseamount < firstchipdealer + dealershownbet and not Global.hasbet:
+		if Input.is_action_just_pressed("Down") and Global.playerraiseamount < Global.playerchips and Global.playerraiseamount < Global.dealerchips + dealershownbet and not Global.hasbet:
 			Global.playerraiseamount += 1
 			_Update_raise_highlight()
 		if Input.is_action_just_pressed("Up") and Global.playerraiseamount > 0 and not Global.hasbet:
@@ -83,8 +80,13 @@ func _process(delta: float) -> void:
 			print(Global.dealerbet)
 
 	if Global.playerbet == Global.dealerbet and Global.hasbet and Global.match:
-		Global.round += 1
 		Global.match = false
+		await get_tree().create_timer(1).timeout
+		Global.round += 1
+	elif Global.playerchips == 0 and Global.match:
+		Global.match = false
+		await get_tree().create_timer(1).timeout
+		Global.round += 1
 
 
 func _showplayerchips():
