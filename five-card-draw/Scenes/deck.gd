@@ -64,6 +64,17 @@ $Dealer_cover_card3, $Dealer_cover_card4, $Dealer_cover_card5]
 
 @onready var card_cover_player_slot: Sprite2D = $CardCoverPlayer_slot
 
+@onready var cardplace_6: Sprite2D = $Cardplace6
+
+@onready var cardplace_7: Sprite2D = $Cardplace7
+
+@onready var cardplace_8: Sprite2D = $Cardplace8
+
+@onready var cardplace_9: Sprite2D = $Cardplace9
+
+@onready var cardplace_10: Sprite2D = $Cardplace10
+
+
 
 @onready var card_back: Sprite2D = $CardBack
 
@@ -112,6 +123,7 @@ func _process(delta: float) -> void:
 
 	if Global.reveal:
 		Global.reveal = false
+		print("Reveal")
 		_show_dealer_hand(0)
 		await get_tree().create_timer(0.15).timeout
 		_show_dealer_hand(1)
@@ -131,11 +143,8 @@ func _deal():
 	while cardamount < 9:
 		await get_tree().create_timer(0.2).timeout
 		if nextdeal > 0:
-			print(Global.playerhand)
-			print(Global.playercardplace)
 			Global.playerhand[Global.playercardplace] = _new_card_player()
 			Global.playercardplace += 1
-			print(Global.playercardplace)
 			dealing_timer.start()
 		elif nextdeal < 0:
 			Global.dealerhand[Global.dealercardplace] = _new_card_dealer()
@@ -153,6 +162,7 @@ func _new_card_dealer():
 	# Deals the cards out visually
 	var tween = get_tree().create_tween()
 	tween.tween_property(coverdealer[cardsplayeddealer], "scale", Vector2(5, 5), 0)
+	tween.tween_property(dealercovercards[cardsplayeddealer], "scale", Vector2(0, 5), 0)
 	tween.tween_property(dealercard, "position", carddealerplace[cardsplayeddealer], 0.5)
 	tween.parallel().tween_property(coverdealer[cardsplayeddealer], "position", carddealerplace[cardsplayeddealer], 0.5)
 	tween.tween_property(coverdealer[cardsplayeddealer], "scale", Vector2(0, 5), 0)
@@ -255,6 +265,11 @@ func _initialise():
 	dealer_cover_card_3.scale = Vector2(0, 5)
 	dealer_cover_card_4.scale = Vector2(0, 5)
 	dealer_cover_card_5.scale = Vector2(0, 5)
+	dealer_cover_card.position = cardplace_6.position
+	dealer_cover_card_2.position = cardplace_7.position
+	dealer_cover_card_3.position = cardplace_8.position
+	dealer_cover_card_4.position = cardplace_9.position
+	dealer_cover_card_5.position = cardplace_10.position
 	card_cover_dealer_slot.scale = Vector2(0, 5)
 	card_cover_dealer_slot_2.scale = Vector2(0, 5)
 	card_cover_dealer_slot_3.scale = Vector2(0, 5)
@@ -265,6 +280,16 @@ func _initialise():
 	card_cover_dealer_slot_3.position = Vector2(503, 333)
 	card_cover_dealer_slot_4.position = Vector2(503, 333)
 	card_cover_dealer_slot_5.position = Vector2(503, 333)
+	card_cover_player_slot.scale = Vector2(5, 5)
+	card_cover_player_slot_2.scale = Vector2(5, 5)
+	card_cover_player_slot_3.scale = Vector2(5, 5)
+	card_cover_player_slot_4.scale = Vector2(5, 5)
+	card_cover_player_slot_5.scale = Vector2(5, 5)
+	card_cover_player_slot.position = Vector2(503, 333)
+	card_cover_player_slot_2.position = Vector2(503, 333)
+	card_cover_player_slot_3.position = Vector2(503, 333)
+	card_cover_player_slot_4.position = Vector2(503, 333)
+	card_cover_player_slot_5.position = Vector2(503, 333)
 	$C2.position = Vector2(503, 333)
 	$C3.position = Vector2(503, 333)
 	$C4.position = Vector2(503, 333)

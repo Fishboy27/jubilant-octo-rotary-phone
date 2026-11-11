@@ -22,11 +22,13 @@ func _process(delta: float) -> void:
 	if Global.round == 1 and not roundoneactivated:
 		# Put in initial bet/Raise
 		roundoneactivated = true
-		Global.hasbet = false
-		Global.canraise = true
-		Global.match = true
-		Global.dealercall = true
-		print("Round 1")
+		await get_tree().create_timer(1).timeout
+		if Global.playerchips > 0:
+			Global.hasbet = false
+			Global.canraise = true
+			Global.dealercall = true
+			print("Round 1")
+			Global.match = true
 
 	if Global.round == 2 and not roundtwoactivated:
 		# Deal
@@ -60,14 +62,14 @@ func _process(delta: float) -> void:
 
 	if Global.round == 6 and not roundsixactivated:
 		roundsixactivated = true
-		await get_tree().create_timer(1).timeout
-		# Reveal
 		Global.reveal = true
+		# Reveal
 		print("Round 6")
 		await get_tree().create_timer(4).timeout
 		_Initialise()
 		Global.reset = true
 		Global.round = 1
+
 
 func _Initialise():
 	roundoneactivated = false

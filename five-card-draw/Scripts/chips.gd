@@ -55,15 +55,18 @@ func _process(delta: float) -> void:
 		_initialise()
 		start = true
 
-	if Global.tie:
-		Global.tie = true
-		await get_tree().create_timer(4).timeout
-		_Tie()
-		_initialise()
-		start = true
+	#if Global.tie:
+		#Global.tie = false
+		#await get_tree().create_timer(4).timeout
+		#_Tie()
+		#_initialise()
+		#start = true
 
 	if Global.canraise:
-		if Input.is_action_just_pressed("Down") and Global.playerraiseamount < Global.playerchips and Global.playerraiseamount < Global.dealerchips + dealershownbet and not Global.hasbet:
+		if (Input.is_action_just_pressed("Down") and 
+		Global.playerraiseamount < Global.playerchips and 
+		Global.playerraiseamount < Global.dealerchips + dealershownbet and not 
+		Global.dealerchips == 0 and not Global.hasbet):
 			Global.playerraiseamount += 1
 			_Update_raise_highlight()
 		if Input.is_action_just_pressed("Up") and Global.playerraiseamount > 0 and not Global.hasbet:
@@ -218,7 +221,7 @@ func _Lose():
 	_showplayerbet()
 
 func _Tie():
-	print("Win")
+	print("Tie")
 	playerchipcount = 19
 	Global.playerchips += Global.playerbet
 	Global.dealerchips += Global.dealerbet
