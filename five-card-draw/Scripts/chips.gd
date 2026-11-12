@@ -27,7 +27,7 @@ var dealerbetcount : int = 9
 var playershownbet : int = 0
 var dealershownbet : int = 0
 var start : bool = true
-
+var raise : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,13 +63,17 @@ func _process(delta: float) -> void:
 		#start = true
 
 	if Global.canraise:
+		if raise:
+			raise = false
+			Global.playerraiseamount = 1
+			_Update_raise_highlight()
 		if (Input.is_action_just_pressed("Down") and 
 		Global.playerraiseamount < Global.playerchips and 
 		Global.playerraiseamount < Global.dealerchips + dealershownbet and not 
 		Global.dealerchips == 0 and not Global.hasbet):
 			Global.playerraiseamount += 1
 			_Update_raise_highlight()
-		if Input.is_action_just_pressed("Up") and Global.playerraiseamount > 0 and not Global.hasbet:
+		if Input.is_action_just_pressed("Up") and Global.playerraiseamount > 1 and not Global.hasbet:
 			Global.playerraiseamount -= 1
 			_Update_raise_highlight()
 		#if Input.is_action_just_pressed("Left"):
@@ -100,6 +104,7 @@ func _process(delta: float) -> void:
 			Global.playerraiseamount = 0
 			Global.dealerraiseamount = 0
 			Global.canraise = false
+			raise = true
 
 	if Global.playerbet == Global.dealerbet and Global.hasbet and Global.match:
 		Global.match = false

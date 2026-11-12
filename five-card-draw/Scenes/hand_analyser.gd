@@ -89,7 +89,7 @@ func _Analysedealerhand():
 	dealersuits.sort()
 	
 	#Flush
-	for i in range(4):
+	for i in range(5):
 		if dealersuits[i] != dealersuits[i + 1]:
 			dealerflush = false
 			break
@@ -97,7 +97,7 @@ func _Analysedealerhand():
 			dealerflush = true
 			
 	#Straight
-	for i in range(4):
+	for i in range(5):
 		if dealervalues[i] + 1 != dealervalues[i + 1]:
 			dealerstraight = false
 			break
@@ -187,7 +187,7 @@ func _Analyseplayerhand():
 	playersuits.sort()
 	
 	#Flush
-	for i in range(4):
+	for i in range(5):
 		if playersuits[i] != playersuits[i + 1]:
 			playerflush = false
 			break
@@ -195,7 +195,7 @@ func _Analyseplayerhand():
 			playerflush = true
 			
 	# Straight
-	for i in range(4):
+	for i in range(5):
 		if playervalues[i] + 1 != playervalues[i + 1]:
 			playerstraight = false
 			break

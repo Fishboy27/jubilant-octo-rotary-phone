@@ -108,17 +108,12 @@ func _process(delta: float) -> void:
 
 	if Global.canswitch:
 		Global.canswitch = false
-		Global.playerhand[Global.switchingcardplayer] = _switch_card_player(Global.switchingcardplayer)
-		await get_tree().create_timer(2).timeout
-		Global.switchingcardplayer += 2
-		Global.playerhand[Global.switchingcardplayer] = _switch_card_player(Global.switchingcardplayer)
-		await get_tree().create_timer(2).timeout
+		for i in range(5):
+			if Global.switchingcardplayer[i] != -1:
+				Global.playerhand[Global.switchingcardplayer[i]] = _switch_card_player(Global.switchingcardplayer[i])
+				await get_tree().create_timer(1).timeout
+		Global.goinvis = true
 		Global.analyseplayer = true
-		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
-		await get_tree().create_timer(1).timeout
-		Global.switchingcarddealer += 2
-		Global.dealerhand[Global.switchingcarddealer] = _switch_card_dealer(Global.switchingcarddealer)
-		await get_tree().create_timer(3).timeout
 		Global.round += 1
 
 	if Global.reveal:
@@ -256,8 +251,8 @@ func _initialise():
 	cardsplayeddealer = 0
 	Global.playercardplace = 0
 	Global.dealercardplace = 0
-	Global.switchingcardplayer = 0
-	Global.switchingcarddealer = 0
+	Global.switchingcardplayer = [0, 1, 2, 3, 4]
+	Global.switchingcarddealer = [0, 1, 2, 3, 4]
 	Global.playerhand = [0, 0, 0, 0, 0]
 	Global.dealerhand = [0 ,0 ,0 ,0, 0]
 	dealer_cover_card.scale = Vector2(0, 5)

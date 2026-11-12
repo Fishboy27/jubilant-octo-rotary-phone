@@ -1,6 +1,155 @@
-[gd_scene load_steps=2 format=3 uid="uid://t4occwttbo63"]
+[gd_scene load_steps=6 format=3 uid="uid://t4occwttbo63"]
 
 [ext_resource type="Script" uid="uid://cu4y7uo5wfi2r" path="res://Scenes/player.gd" id="1_v0iea"]
+[ext_resource type="Texture2D" uid="uid://lmn135er7vw4" path="res://Art/Cardselect1.png" id="2_6t5aa"]
+[ext_resource type="Texture2D" uid="uid://c08p3r031yxo8" path="res://Art/Cardselect2.png" id="3_vgqql"]
+[ext_resource type="Texture2D" uid="uid://cmk7kk2k0e225" path="res://Art/Selectedcard.png" id="4_fkybt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fkybt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_6t5aa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vgqql")
+}],
+"loop": true,
+"name": &"Select",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fkybt")
+}],
+"loop": true,
+"name": &"Selectedcard",
+"speed": 5.0
+}]
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_v0iea")
+
+[node name="Selector1" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+position = Vector2(273, 526)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_fkybt")
+animation = &"Select"
+autoplay = "Select"
+frame_progress = 0.76310486
+
+[node name="Selector2" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+position = Vector2(388, 526)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_fkybt")
+animation = &"Select"
+autoplay = "Select"
+frame_progress = 0.20042352
+
+[node name="Selector3" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+position = Vector2(503, 526)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_fkybt")
+animation = &"Select"
+autoplay = "Select"
+frame_progress = 0.16167861
+
+[node name="Selector4" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+position = Vector2(619, 526)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_fkybt")
+animation = &"Select"
+autoplay = "Select"
+frame_progress = 0.28056863
+
+[node name="Selector5" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 2
+texture_filter = 1
+position = Vector2(734.00006, 526)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_fkybt")
+animation = &"Select"
+autoplay = "Select"
+
+[node name="Switch" type="Button" parent="."]
+z_index = -2
+offset_left = 562.0
+offset_top = 376.0
+offset_right = 669.0
+offset_bottom = 428.0
+focus_neighbor_left = NodePath("../Passbutton")
+focus_neighbor_top = NodePath("../Dudbutton")
+focus_neighbor_right = NodePath("../Passbutton")
+focus_neighbor_bottom = NodePath("../Dudbutton")
+theme_override_font_sizes/font_size = 30
+text = "Switch"
+flat = true
+
+[node name="Passbutton" type="Button" parent="."]
+z_index = -2
+offset_left = 681.0
+offset_top = 376.0
+offset_right = 788.0
+offset_bottom = 428.0
+focus_neighbor_left = NodePath("../Switch")
+focus_neighbor_top = NodePath("../Dudbutton")
+focus_neighbor_right = NodePath("../Switch")
+focus_neighbor_bottom = NodePath("../Dudbutton")
+theme_override_font_sizes/font_size = 30
+text = "Pass"
+flat = true
+
+[node name="Raise" type="Button" parent="."]
+z_index = -2
+offset_left = 334.0
+offset_top = 376.0
+offset_right = 441.0
+offset_bottom = 428.0
+focus_neighbor_left = NodePath("../Switch")
+focus_neighbor_top = NodePath("../Dudbutton")
+focus_neighbor_right = NodePath("../Switch")
+focus_neighbor_bottom = NodePath("../Dudbutton")
+theme_override_font_sizes/font_size = 30
+text = "Raise"
+flat = true
+
+[node name="Call" type="Button" parent="."]
+z_index = -2
+offset_left = 222.0
+offset_top = 376.0
+offset_right = 329.0
+offset_bottom = 428.0
+focus_neighbor_left = NodePath("../Switch")
+focus_neighbor_top = NodePath("../Dudbutton")
+focus_neighbor_right = NodePath("../Switch")
+focus_neighbor_bottom = NodePath("../Dudbutton")
+theme_override_font_sizes/font_size = 30
+text = "Call"
+flat = true
+
+[node name="Dudbutton" type="Button" parent="."]
+offset_left = 620.0
+offset_top = 683.0
+offset_right = 727.0
+offset_bottom = 735.0
+focus_neighbor_top = NodePath("../Switch")
+focus_neighbor_bottom = NodePath("../Switch")
+theme_override_font_sizes/font_size = 30
+
+[connection signal="pressed" from="Switch" to="." method="_on_switch_pressed"]
+[connection signal="pressed" from="Passbutton" to="." method="_on_pass_pressed"]
+[connection signal="pressed" from="Raise" to="." method="_on_raise_pressed"]
+[connection signal="pressed" from="Call" to="." method="_on_call_pressed"]

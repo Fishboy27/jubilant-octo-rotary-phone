@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cex846ttusjk6"]
+[gd_scene load_steps=11 format=3 uid="uid://cex846ttusjk6"]
 
 [ext_resource type="Texture2D" uid="uid://22yo4aun86oc" path="res://Art/Background.png" id="1_r4jc3"]
 [ext_resource type="Texture2D" uid="uid://d2guskptj0f8r" path="res://Art/vignette.png" id="2_0xndo"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dlydna4243prf" path="res://Art/Boos Battle (1).png" id="8_o4lkm"]
 [ext_resource type="PackedScene" uid="uid://d1lv0ntiec6j0" path="res://Scenes/hand_analyser.tscn" id="8_xexre"]
 [ext_resource type="PackedScene" uid="uid://dcme0u3dgib1y" path="res://Scenes/round_manager.tscn" id="9_xexre"]
+[ext_resource type="PackedScene" uid="uid://t4occwttbo63" path="res://Scenes/player.tscn" id="10_4ntqo"]
 
 [node name="Table" type="Node2D"]
 
@@ -42,3 +43,6 @@ texture = ExtResource("8_o4lkm")
 [node name="Hand_analyser" parent="." instance=ExtResource("8_xexre")]
 
 [node name="Round_Manager" parent="." instance=ExtResource("9_xexre")]
+
+[node name="Player" parent="." instance=ExtResource("10_4ntqo")]
+z_index = 3

@@ -27,8 +27,8 @@ func _process(delta: float) -> void:
 			Global.hasbet = false
 			Global.canraise = true
 			Global.dealercall = true
-			print("Round 1")
 			Global.match = true
+			print("Round 1")
 
 	if Global.round == 2 and not roundtwoactivated:
 		# Deal
@@ -37,7 +37,7 @@ func _process(delta: float) -> void:
 		print("Round 2")
 
 	if Global.round == 3 and not roundthreeactivated:
-		# Put in initial bet/Raise
+		# Raise
 		roundthreeactivated = true
 		Global.hasbet = false
 		Global.canraise = true
@@ -48,11 +48,12 @@ func _process(delta: float) -> void:
 	if Global.round == 4 and not roundfouractivated:
 		# Switch
 		roundfouractivated = true
-		Global.canswitch = true
+		Global.canselect = true
+		Global.selecting = true
 		print("Round 4")
 
 	if Global.round == 5 and not roundfiveactivated:
-		# Put in initial bet/Raise
+		# Raise
 		roundfiveactivated = true
 		Global.hasbet = false
 		Global.canraise = true
