@@ -147,7 +147,7 @@ func _Analysedealerhand():
 		dealerhandrank = 7
 	elif dealerflush and not dealerstraight:
 		dealerhand.text = "Flush"
-		playerhandrank = 6
+		dealerhandrank = 6
 	elif dealerstraight and not dealerflush:
 		dealerhand.text = "Straight"
 		dealerhandrank = 5

@@ -114,6 +114,11 @@ func _process(delta: float) -> void:
 				await get_tree().create_timer(1).timeout
 		Global.goinvis = true
 		Global.analyseplayer = true
+		Global.dealerswitch = true
+		for i in range(5):
+			if Global.switchingcarddealer[i] != -1:
+				Global.dealerhand[Global.switchingcarddealer[i]] = _switch_card_dealer(Global.switchingcarddealer[i])
+				await get_tree().create_timer(1).timeout
 		Global.round += 1
 
 	if Global.reveal:
